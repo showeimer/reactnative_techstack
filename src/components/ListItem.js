@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
+import { connect } from 'react-redux';
 import { CardSection } from './common';
 
 class ListItem extends Component {
@@ -22,4 +23,8 @@ const styles = {
   }
 };
 
-export default ListItem;
+const mapStateToProps = state => {
+  return {selected: state.selectedLibraryId}
+};
+
+export default connect(mapStateToProps)(ListItem);
